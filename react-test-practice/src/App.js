@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import SummaryPage from "./pages/SummaryPage/SummaryPage";
 
 function App() {
   const [counter, setCounter] = useState(0);
@@ -8,7 +9,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h3 data-testid="counter">{counter}</h3>
+        <SummaryPage />
+        {/* <h3 data-testid="counter">{counter}</h3>
         <div>
           <button
             data-testid="minus-button"
@@ -31,7 +33,7 @@ function App() {
           >
             Blue color
           </button>
-        </div>
+        </div> */}
       </header>
     </div>
   );
