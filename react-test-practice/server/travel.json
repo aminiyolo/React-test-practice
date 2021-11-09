@@ -1,0 +1,29 @@
+{
+  "countries": [
+    {
+      "name": "America",
+      "imagePath": "https://i.ibb.co/HtLKZg2/LoginBG.jpg",
+      "description": "Good America"
+    },
+    {
+      "name": "England",
+      "imagePath": "https://i.ibb.co/HtLKZg2/LoginBG.jpg",
+      "description": "Good England"
+    },
+    {
+      "name": "Japan",
+      "imagePath": "https://i.ibb.co/HtLKZg2/LoginBG.jpg",
+      "description": "Good Japan"
+    }
+  ],
+  "options": [
+    {
+      "name": "Insurance",
+      "descripton": "for your safe trip"
+    },
+    {
+      "name": "Dinner",
+      "descripton": "delicious"
+    }
+  ]
+}

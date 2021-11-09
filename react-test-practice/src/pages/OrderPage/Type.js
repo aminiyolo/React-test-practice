@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from "react";
 import Products from "./Products";
 import axios from "axios";
+import ErrorBanner from "../../components/ErrorBanner";
+import Options from "./Options";
 
 const Type = ({ orderType }) => {
   const [items, setItems] = useState([]);
+  const [error, setError] = useState(false);
 
   const loadItems = async (orderType) => {
     try {
       const res = await axios.get(`http://localhost:5000/${orderType}`);
       setItems(res.data);
     } catch (err) {
-      console.log(err);
+      setError(true);
     }
   };
 
@@ -18,17 +21,32 @@ const Type = ({ orderType }) => {
     loadItems(orderType);
   }, [orderType]);
 
-  const ItemComponents = orderType === "products" ? Products : null;
+  if (error) {
+    return <ErrorBanner msg="에러가 발생했습니다." />;
+  }
+
+  const ItemComponents = orderType === "products" ? Products : Options;
 
   const optionItems = items.map((item) => (
-    <ItemComponents
-      key={item.name}
-      name={item.name}
-      imagePath={item.imagePath}
-    />
+    <ItemComponents key={item.name} name={item.name} imagePath={""} />
   ));
 
-  return <div>{optionItems}</div>;
+  return (
+    <>
+      <h2>주문 종류</h2>
+      <p>하나의 가격</p>
+      <p>총 가격</p>
+
+      <div
+        style={{
+          display: "flex",
+          flexDirection: orderType === "options" && "column",
+        }}
+      >
+        {optionItems}
+      </div>
+    </>
+  );
 };
 
 export default Type;

@@ -11,7 +11,7 @@ const Products = ({ name, imagePath }) => {
       <form style={{ marginTop: "10px" }}>
         <label style={{ textAlign: "right" }}>{name}</label>
         <input
-          style={{ marginLeft: "7" }}
+          style={{ marginLeft: "7px" }}
           type="number"
           name="quantity"
           min="0"
